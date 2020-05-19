@@ -1,0 +1,109 @@
+Inserting these records using postman
+
+{
+	"accountNumber":120122455,
+	"accountName":"Ravi Varma",
+	"accountType":"Checkings",
+	"cccountBalance":1700.89,
+	"mobileNumber":73284759,
+	"address":"San Jose",
+    "dateOfBirth": "05/23/2001",
+    "accountStartDate": "01/18/2010T19:25:23"
+}
+
+{
+	"accountNumber":120122786,
+	"accountName":"Deepak Chakraborthy",
+	"accountType":"Savings",
+	"cccountBalance":2100.25,
+	"mobileNumber":73212359,
+	"address":"San Jose",
+    "dateOfBirth": "06/31/2002",
+    "accountStartDate": "02/31/2014T19:25:23"
+}
+
+{
+	"accountNumber":120122369,
+	"accountName":"Ramesh Gundeti",
+	"accountType":"Checkings",
+	"cccountBalance":1034.20,
+	"mobileNumber":73456359,
+	"address":"San Jose",
+    "dateOfBirth": "07/15/2003",
+    "accountStartDate": "03/07/2019T19:25:23"
+}
+
+{
+	"accountNumber":120122123,
+	"accountName":"Suman Shekhar",
+	"accountType":"Savings",
+	"cccountBalance":1005.10,
+	"mobileNumber":73456364,
+	"address":"San Jose",
+    "dateOfBirth": "08/09/2004",
+    "accountStartDate": "04/12/2015T19:25:23"
+}
+
+{
+	"accountNumber":120122321,
+	"accountName":"Kapil Sharma",
+	"accountType":"Checkings",
+	"cccountBalance":1400.20,
+	"mobileNumber":73456376,
+	"address":"San Jose",
+    "dateOfBirth": "09/04/2005",
+    "accountStartDate": "05/19/2011T19:25:23"
+}
+
+{
+	"accountNumber":120122475,
+	"accountName":"Novdeep Chakraborthy",
+	"accountType":"Savings",
+	"cccountBalance":1000.30,
+	"mobileNumber":73456123,
+	"address":"San Jose",
+    "dateOfBirth": "10/29/2001",
+    "accountStartDate": "06/11/2015T19:25:23"
+}
+
+{
+	"accountNumber":120122884,
+	"accountName":"Ashok Kumar",
+	"accountType":"Checkings",
+	"cccountBalance":1200.40,
+	"mobileNumber":73456123,
+	"address":"San Jose",
+    "dateOfBirth": "11/20/2006",
+    "accountStartDate": "07/15/2014T19:25:23"
+}
+{
+	"accountNumber":120122991,
+	"accountName":"Shashank Kumar",
+	"accountType":"Savings",
+	"cccountBalance":1500.50,
+	"mobileNumber":73456167,
+	"address":"San Jose",
+    "dateOfBirth": "12/26/1990",
+    "accountStartDate": "08/18/2016T19:25:23"
+}
+{
+	"accountNumber":120122111,
+	"accountName":"Yaseen Sheik",
+	"accountType":"Checkings",
+	"cccountBalance":1100.60,
+	"mobileNumber":73456595,
+	"address":"San Jose",
+    "dateOfBirth": "03/16/1991",
+    "accountStartDate": "09/16/2015T19:25:23"
+}
+
+{
+	"accountNumber":120122555,
+	"accountName":"Harsh Vardhan",
+	"accountType":"Savings",
+	"cccountBalance":1000.70,
+	"mobileNumber":73456589,
+	"address":"San Jose",
+    "dateOfBirth": "01/08/1992",
+    "accountStartDate": "10/23/2020T19:25:23"
+}
