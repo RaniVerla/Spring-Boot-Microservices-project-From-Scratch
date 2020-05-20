@@ -1,0 +1,59 @@
+------------------------------------------------------------------------------------------------------------------
+sample Test case:
+------------------------------------------------------------------------------------------------------------------
+
+http://localhost:9191/account-service/add/accountees
+Basic Account created with balance
+
+{
+	"accountNumber":120122555,
+	"accountName":"Harsh Vardhan",
+	"accountType":"Savings",
+	"accountBalance":1000.70,
+	"mobileNumber":73456589,
+	"address":"San Jose",
+    "dateOfBirth": "01/08/1992",
+    "accountStartDate": "10/23/2020T19:25:23"
+}
+
+http://localhost:9192/deposit-service/depositamount
+
+Deposting amount in to the account
+{
+	"accountNumber":120122555,
+	"accountName":"Harsh Vardhan",
+	"accountType":"Savings",
+	"accountBalance":1000.70,
+	"depositAmount":200.00
+}
+
+http://localhost:9193/withdraw-service/withdrawamount   --post
+
+http://localhost:9193/withdraw-service/getaccountbynumber/120122555 --get
+
+Withdrawing amount from the account
+
+{
+	"accountNumber":120122555,
+	"accountName":"Harsh Vardhan",
+	"accountType":"Savings",
+	"accountBalance":1200.70,
+	"withdrawAmount":400.50
+}
+
+
+http://localhost:9194/transfer-service/transferamount
+Transaferring amount
+
+{
+	"accountNumber":120122555,
+	"accountName":"Harsh Vardhan",
+	"accountType":"Savings",
+	"accountBalance":800.2,
+	"transferAmount":400.50,
+	"transferTo" :"Ebay.com"
+}
+
+AccountHolder_Transfer [accountId=1, accountNumber=120122555, accountName=Harsh Vardhan, accountType=Savings, 
+accountBalance=399.70000000000005, previousBalance=800.2, transferAmount=400.5, transferredTo=null, 
+transferTime=2020-05-19T16:44:21.419307500]
