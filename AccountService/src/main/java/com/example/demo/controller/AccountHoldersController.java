@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Service.AccountService;
+import com.example.demo.service.AccountService;
 import com.example.demo.model.AccountHolder;
 
 @RestController
@@ -23,9 +23,6 @@ public class AccountHoldersController {
 	AccountService accountService;
 	
 
-	
-	
-	
 
 	//get the account Holders
 	@GetMapping("/getallaccounts")
