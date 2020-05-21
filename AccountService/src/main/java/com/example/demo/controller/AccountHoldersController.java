@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.service.AccountService;
 import com.example.demo.model.AccountHolder;
@@ -22,6 +23,8 @@ public class AccountHoldersController {
 	@Autowired
 	AccountService accountService;
 	
+	@Autowired
+	private RestTemplate template;
 
 
 	//get the account Holders
@@ -32,8 +35,7 @@ public class AccountHoldersController {
 		return list;
 	}
 	
-	//create accountholders by postmethod
-	
+	//create accountholders by postmethod	
 	@PostMapping("/add/accountees")
 	public AccountHolder addAccountees(@RequestBody AccountHolder accounts) throws ParseException
 	{
@@ -43,7 +45,6 @@ public class AccountHoldersController {
 	}
 	
 	//get account details basing on id
-	
 	@GetMapping("/getaccountbyid/{accountid}")
 	public Optional<AccountHolder> getaccountById(@PathVariable("accountid") int accountId )
 	{
@@ -51,6 +52,15 @@ public class AccountHoldersController {
 		return getaccbyId;
 	}
 	
+	
+	@GetMapping("/getfromdepositservice")
+	public AccountHolder depositthroughDepositService(@PathVariable int accountid)
+	{
+		
+		String url="http://DEPOSIT-SERVICE/getaccountbyid/"+accountid;
+		
+		return template.getForObject(url, AccountHolder.class);
+	}
 	
 	
 
