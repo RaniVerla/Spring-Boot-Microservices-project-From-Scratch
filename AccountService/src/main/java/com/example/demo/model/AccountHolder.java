@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -39,6 +40,8 @@ public class AccountHolder {
 	private Long mobileNumber;
 	@Column
 	private String address;
+	@Transient
+	private double depositamount;
 	
 	
 	
@@ -151,6 +154,28 @@ public class AccountHolder {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+
+
+	public double getDepositamount() {
+		return depositamount;
+	}
+
+
+
+	public void setDepositamount(double depositamount) {
+		this.depositamount = depositamount;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "AccountHolder [accountId=" + accountId + ", accountNumber=" + accountNumber + ", accountName="
+				+ accountName + ", dateOfBirth=" + dateOfBirth + ", accountType=" + accountType + ", accountStartDate="
+				+ accountStartDate + ", accountBalance=" + accountBalance + ", mobileNumber=" + mobileNumber
+				+ ", address=" + address + ", depositamount=" + depositamount + "]";
 	}
 
 
