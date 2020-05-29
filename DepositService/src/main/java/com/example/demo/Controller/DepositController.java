@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.Service.DepositService;
 import com.example.demo.dao.DepositRepository;
@@ -24,6 +25,11 @@ public class DepositController {
 
 	@Autowired
 	DepositRepository repository;
+	
+	@Autowired
+	RestTemplate  template;
+	
+	
 
 	// post Method to deposit some amount
 	@PostMapping("/depositamount")
@@ -47,5 +53,17 @@ public class DepositController {
 		// Optional<AccountHolder> getaccbyId=accountService.getaccountById(accountId);
 		return repository.findById(accountId);
 	}
+	
+	// get account details basing on id
+		@GetMapping("/getaccountbynumber/{accountnumber}")
+		public double getaccountbyaccountNumber(@PathVariable("accountnumber") int accountnumber) {
+			Optional<AccountHolder_Deposit> accountdeposit=repository.findByAccountNumber(accountnumber);
+			
+			double getbalance=accountdeposit.get().getAccountBalance();
+			
+			return getbalance;
+		}
+		
+
 
 }

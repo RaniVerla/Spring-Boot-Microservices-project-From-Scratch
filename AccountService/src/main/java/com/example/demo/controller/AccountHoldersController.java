@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +22,8 @@ import com.example.demo.model.AccountHolder;
 @RequestMapping("/account-service")
 public class AccountHoldersController {
 	
+	private static final Logger log=LoggerFactory.getLogger(AccountHoldersController.class);
+	
 	@Autowired
 	AccountService accountService;
 	
@@ -29,8 +33,9 @@ public class AccountHoldersController {
 
 	//get the account Holders
 	@GetMapping("/getallaccounts")
-	public List<AccountHolder> accountholder()
+	public List<AccountHolder> getallaccountholders()
 	{
+		log.info("Get all account holders method is called ");
 		List<AccountHolder> list=accountService.getAllAccounts();
 		return list;
 	}
@@ -45,7 +50,7 @@ public class AccountHoldersController {
 	}
 	
 	//get account details basing on id
-	@GetMapping("/getaccountbyid/{accountid}")
+	@GetMapping("/getaccountbyid/{accoutnumber}")
 	public Optional<AccountHolder> getaccountById(@PathVariable("accountid") int accountId )
 	{
 		Optional<AccountHolder> getaccbyId=accountService.getaccountById(accountId);
@@ -53,15 +58,26 @@ public class AccountHoldersController {
 	}
 	
 	
-	@GetMapping("/getfromdepositservice")
-	public AccountHolder depositthroughDepositService(@PathVariable int accountid)
+	@GetMapping("/getfromdepositservice/{accountnumber}")
+	public double depositthroughDepositService(@PathVariable int accountnumber)
 	{
+		log.info("Account service called Deposit Service ");
 		
-		String url="http://DEPOSIT-SERVICE/getaccountbyid/"+accountid;
+		String url="http://DEPOSIT-SERVICE/deposit-service/getaccountbynumber/" +accountnumber;
 		
-		return template.getForObject(url, AccountHolder.class);
+		return template.getForObject(url, double.class);
 	}
 	
+	
+	//get balance and date using 3 services
+	
+	//amount deposit service
+	
+	//with draw service
+	
+	//transfer service
+	
+	//test to check 
 	
 
 }

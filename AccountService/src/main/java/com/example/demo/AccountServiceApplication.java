@@ -15,13 +15,13 @@ public class AccountServiceApplication {
 	@Bean
 	public RestTemplate getRestTemplate()
 	{
-		return new RestTemplate();
+			return new RestTemplate();
 	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(AccountServiceApplication.class, args);
 	}
-	
+	//test
 	
 
 }

@@ -1,0 +1,33 @@
+spring:
+  application:
+      name: deposit-service
+  zipkin:    base-url: http://localhost:9411/    
+  jpa:
+    database: SQL_SERVER
+    show-sql: true   
+    hibernate:
+      ddl-auto: update      
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        format_sql: true
+     
+  datasource:
+    url: jdbc:sqlserver://DESKTOP-PGKE763\SQLEXPRESS; Database=Sample
+    hikari:
+      pool-name: junit-pool
+      username: Rani
+      password: 123
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true  
+    service-url:
+     defaultzone: http://localhost:8761/eureka        
+  instance:
+    hostname: localhost  
+      
+server:
+  port: 9192

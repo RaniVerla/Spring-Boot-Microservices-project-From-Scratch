@@ -1,0 +1,23 @@
+spring:
+  application:
+      name: withdraw-service 
+  jpa:
+    database: SQL_SERVER
+    show-sql: true   
+    hibernate:
+      ddl-auto: update      
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        format_sql: true
+     
+  datasource:
+    url: jdbc:sqlserver://DESKTOP-PGKE763\SQLEXPRESS; Database=Sample
+    hikari:
+      pool-name: junit-pool
+      username: Rani
+      password: 123
+      driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      
+server:
+  port: 9194
