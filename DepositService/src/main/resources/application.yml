@@ -25,7 +25,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true  
     service-url:
-     defaultzone: http://localhost:8761/eureka        
+     defaultzone: http://localhost:8080/SpringBootDemo-0.0.1-SNAPSHOT       
   instance:
     hostname: localhost  
       
