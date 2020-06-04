@@ -22,7 +22,6 @@ import com.example.demo.model.AccountHolder;
 @RequestMapping("/account-service")
 public class AccountHoldersController {
 	
-	private static final Logger log=LoggerFactory.getLogger(AccountHoldersController.class);
 	
 	@Autowired
 	AccountService accountService;
@@ -35,7 +34,8 @@ public class AccountHoldersController {
 	@GetMapping("/getallaccounts")
 	public List<AccountHolder> getallaccountholders()
 	{
-		log.info("Get all account holders method is called ");
+		
+		String url="http://ACCOUNT-SERVICE/account-service/getallaccounts";
 		List<AccountHolder> list=accountService.getAllAccounts();
 		return list;
 	}
@@ -61,7 +61,6 @@ public class AccountHoldersController {
 	@GetMapping("/getfromdepositservice/{accountnumber}")
 	public double depositthroughDepositService(@PathVariable int accountnumber)
 	{
-		log.info("Account service called Deposit Service ");
 		
 		String url="http://DEPOSIT-SERVICE/deposit-service/getaccountbynumber/" +accountnumber;
 		
