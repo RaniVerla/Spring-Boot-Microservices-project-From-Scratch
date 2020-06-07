@@ -29,6 +29,6 @@ eureka:
     hostname: localhost              
       
 server:
-  port: 9191
+  port: 9191    error:    whitelabel:      enabled: false
   
 

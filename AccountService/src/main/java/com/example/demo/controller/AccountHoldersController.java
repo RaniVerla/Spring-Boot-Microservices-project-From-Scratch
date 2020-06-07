@@ -4,9 +4,8 @@ import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.demo.service.AccountService;
 import com.example.demo.model.AccountHolder;
+import com.example.demo.service.AccountService;
 
 @RestController
 @RequestMapping("/account-service")
@@ -51,10 +50,13 @@ public class AccountHoldersController {
 	
 	//get account details basing on id
 	@GetMapping("/getaccountbyid/{accoutnumber}")
-	public Optional<AccountHolder> getaccountById(@PathVariable("accountid") int accountId )
+	public AccountHolder getaccountById(@PathVariable("accountid") int accountId )
 	{
 		Optional<AccountHolder> getaccbyId=accountService.getaccountById(accountId);
-		return getaccbyId;
+	
+		
+		return getaccbyId.orElseThrow(()->handleException());
+		
 	}
 	
 	
@@ -65,6 +67,13 @@ public class AccountHoldersController {
 		String url="http://DEPOSIT-SERVICE/deposit-service/getaccountbynumber/" +accountnumber;
 		
 		return template.getForObject(url, double.class);
+	}
+	
+	
+	@ExceptionHandler({MyResourceNotFoundException.class})
+	public MyResourceNotFoundException handleException()
+	{
+		return new MyResourceNotFoundException("Requested Id is not found");
 	}
 	
 	
